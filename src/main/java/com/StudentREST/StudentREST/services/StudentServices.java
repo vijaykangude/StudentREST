@@ -8,4 +8,5 @@ public interface StudentServices {
 	
 	public List<Students> GetStudents();
 	public Students GetStudent(int id);
+	public Students AddStudent(Students student);
 }

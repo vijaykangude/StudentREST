@@ -3,8 +3,11 @@ package com.StudentREST.StudentREST.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.StudentREST.StudentREST.Model.Students;
 
+@Service
 public class StudentServiceimpl implements StudentServices {
 	
 	public static List<Students> stlist;
@@ -23,8 +26,22 @@ public class StudentServiceimpl implements StudentServices {
 	}
 
 	@Override
-	public Students GetStudent(int id)
-		return null;
+	public Students GetStudent(int id) {
+		
+		Students s=null;
+		for(Students student:stlist) {
+			if(student.getRoll()==id) {
+				s = student;
+				break;
+			}
+		}
+		return s;
+	}
+
+	@Override
+	public Students AddStudent(Students student) {
+		stlist.add(student);
+		return student;
 	}
 
 }
